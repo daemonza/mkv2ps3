@@ -1,0 +1,13 @@
+following psilo357 advice from https://bbs.archlinux.org/viewtopic.php?id=62298&p=2
+
+Usage : mkv2ps3.sh movie.mkv
+         mkv2ps3.sh /path/to/dir/with/mkv/files 
+
+dependencies on Arch linux :
+MP4Box http://gpac.wp.institut-telecom.fr/mp4box/
+Get it with pacman -S gpac 
+mkvtoolnix http://www.bunkus.org/videotools/mkvtoolnix/
+Get it with pacman -S mkvtoolnix
+ffmpeg http://www.ffmpeg.org/
+Get it with pacman -S ffmpeg
+
