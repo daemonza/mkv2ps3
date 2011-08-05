@@ -1,7 +1,12 @@
-following psilo357 advice from https://bbs.archlinux.org/viewtopic.php?id=62298&p=2
+Script to convert mkv files to mp4 files that's compatible on a Playstation 3
+
+
+Following psilo357 advice from https://bbs.archlinux.org/viewtopic.php?id=62298&p=2
+I wrote the script to basically just tie all the commands togheter to make it a 
+little easier.
 
 Usage : mkv2ps3.sh movie.mkv
-         mkv2ps3.sh /path/to/dir/with/mkv/files 
+        mkv2ps3.sh /path/to/dir/with/mkv/files 
 
 dependencies on Arch linux :
 MP4Box http://gpac.wp.institut-telecom.fr/mp4box/
