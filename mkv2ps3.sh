@@ -5,6 +5,7 @@
 
 # Usage : mkv2ps3.sh movie.mkv
 #         mkv2ps3.sh /path/to/dir/with/mkv/files 
+# NOTE : Original mkv file get's deleted after conversion.
 
 # dependencies on Arch linux :
 # MP4Box http://gpac.wp.institut-telecom.fr/mp4box/
@@ -39,6 +40,8 @@ function mkv2ps3 {
 
     # Merge everything to mp4
     MP4Box -new $1.mp4 -add $1.264 -add $1.aac -fps 23.976
+
+    cleanup $1 
 }
 
 
@@ -47,21 +50,29 @@ if [ -d $1 ]; then
     cd $DIR
 
     # Replace all white spaces with a _ 
-    IFS=$'\n'
+    #IFS=$'\n'
     for f in `find .`; do
         file=$(echo $f | tr [:blank:] '_')
-        [ -e $f ] && [ ! -e $file ] && mv "$f" $file
+        mv "$f" $file
     done
-    unset IFS
+    #unset IFS
 
     for mkv_file in *.mkv;
         do
             mkv2ps3 $mkv_file
-            cleanup $mkv_file
     done
     else
-        mkv2ps3 $1
-        cleanup $1
+        if [ -f "$1" ]; then 
+            # Replace white spaces in file name with a _
+            new_file=$(echo "$1" | tr [:blank:] '_')
+            mv "$1" $new_file  
+
+            mkv2ps3 $new_file
+            else
+                echo "ERROR: Cannot find $new_file"
+                exit
+        fi
+   unset DIR
 fi 
      
 
