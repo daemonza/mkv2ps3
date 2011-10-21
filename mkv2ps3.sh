@@ -7,14 +7,11 @@
 #         mkv2ps3.sh /path/to/dir/with/mkv/files 
 # NOTE : Original mkv file get's deleted after conversion.
 
-# dependencies on Arch linux :
 # MP4Box http://gpac.wp.institut-telecom.fr/mp4box/
-# Get it with pacman -S gpac 
 # mkvtoolnix http://www.bunkus.org/videotools/mkvtoolnix/
-# Get it with pacman -S mkvtoolnix
 # ffmpeg http://www.ffmpeg.org/
-# Get it with pacman -S ffmpeg
 
+# Tested on Linux (Arch) and OS X(Lion)
 
 function cleanup {
     echo -n "### Cleaning up..."
