@@ -48,8 +48,8 @@ if [ -d $1 ]; then
 
     # Replace all white spaces with a _ 
     #IFS=$'\n'
-    for f in `find .`; do
-        file=$(echo $f | tr [:blank:] '_')
+    for f in *; do
+        file=$(echo $f | sed 's/ /_/g')
         mv "$f" $file
     done
     #unset IFS
@@ -61,7 +61,7 @@ if [ -d $1 ]; then
     else
         if [ -f "$1" ]; then 
             # Replace white spaces in file name with a _
-            new_file=$(echo "$1" | tr [:blank:] '_')
+            new_file=$(echo "$1" | sed 's/ /_/g')
             mv "$1" $new_file  
 
             mkv2ps3 $new_file
